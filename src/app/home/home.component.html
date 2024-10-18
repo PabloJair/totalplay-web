@@ -1,0 +1,92 @@
+<mat-card id="card" style="text-align: center; background-color: #595959">
+  <mat-card-content
+    style="display: flex; justify-content: center; align-items: center"
+  >
+    <mat-card id="card-content" style="text-align: center; width: 30%">
+      <mat-card-title>
+        <div class="flex">
+          <div class="flex-none w-14 h-14 pt-5">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="menu"
+            ></mat-icon>
+          </div>
+          <div class="flex items-center">
+            <img
+              mat-card-image
+              src="assets/pngegg.png"
+              alt="Photo of a Shiba Inu"
+              class="h-16"
+            />
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-card-title>
+      <mat-card-content style="background-color: ghostwhite">
+        <div class="grid grid-cols-2 gap-4 pt-5">
+          <div *ngFor="let tile of tiles">
+            <mat-card class="home-card">
+              <mat-card-content class="home-card-content">
+                <img
+                  mat-card-image
+                  src="{{ tile.scr }}"
+                  alt="Photo of a Shiba Inu"
+                  style="height: 50px; width: 3%"
+                />
+                <div>
+                  <div>{{ tile.text }}</div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <div class="flex flex-col ...">
+          <div>
+            <img
+              class="pt-5 pb-5 pl-2 h-48 w-96"
+              mat-card-image
+              src="assets/map2.png"
+              alt="Photo of a Shiba Inu"
+            />
+            <button mat-button>Oficinas cerca de ti</button>
+
+            <mat-card class="example-card" appearance="outlined">
+              <img
+                mat-card-image
+                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu"
+              />
+
+              <mat-card-actions class="flex justify-center">
+                <button mat-button>Oficinas cerca de ti</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <mat-grid-list cols="2" style="padding-top: 16px">
+          <div *ngFor="let tile of tiles">
+            <mat-grid-tile [rowspan]="tile.rows" [colspan]="tile.cols">
+              <mat-card
+                class="home-card"
+                style="background-color: {{ tile.color }}"
+              >
+                <mat-card-content class="home-card-content">
+                  <img
+                    mat-card-image
+                    src="{{ tile.scr }}"
+                    alt="Photo of a Shiba Inu"
+                    style="height: 50px; width: 3%"
+                  />
+                  <div>
+                    <div>Servicios</div>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </div>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
