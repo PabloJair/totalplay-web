@@ -27,8 +27,7 @@
         <div class="grid grid-cols-2 gap-4 pt-5">
           <mat-card
             class="home-card"
-            [routerLink]="['/services']"
-            (click)="({})"
+            (click)="goToLink('https://www.totalplay.com.mx/internet')"
           >
             <mat-card-content class="home-card-content">
               <img
@@ -44,7 +43,7 @@
           </mat-card>
           <mat-card
             class="home-card"
-            (click)="goToLink('https://www.totalplay.com.mx/paquetes')"
+            (click)="goToLink('https://www.totalplay.com.mx/totalplaytv')"
           >
             <mat-card-content class="home-card-content">
               <img
@@ -60,7 +59,7 @@
           </mat-card>
           <mat-card
             class="home-card"
-            (click)="goToLink('https://www.totalplay.com.mx/contrata')"
+            (click)="goToLink('https://www.totalplay.com.mx/telefonia')"
           >
             <mat-card-content class="home-card-content">
               <img
@@ -76,8 +75,7 @@
           </mat-card>
           <mat-card
             class="home-card"
-            [routerLink]="['/services']"
-            (click)="({})"
+            (click)="goToLink('https://www.totalplay.com.mx/clubwifitotalplay')"
           >
             <mat-card-content class="home-card-content">
               <img
@@ -93,49 +91,7 @@
           </mat-card>
         </div>
 
-        <div class="flex flex-col ...">
-          <div>
-            <img
-              class="pt-5 pb-5 pl-2 h-48 w-96"
-              mat-card-image
-              src="assets/map2.png"
-            />
-          </div>
-          <div class="grid grid-cols-2 gap-1 pt-5">
-            <mat-card
-              class="home-card"
-              (click)="
-                goToLink(
-                  'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em@'
-                )
-              "
-            >
-              <mat-card-content class="home-card-content">
-                <img
-                  mat-card-image
-                  src="{{ tiles2[0].scr }}"
-                  alt="Photo of a Shiba Inu"
-                  style="height: 50px; width: 3%"
-                />
-                <div>
-                  <div class="text-sm">{{ tiles2[0].text }}</div>
-                </div>
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="home-card">
-              <mat-card-content class="home-card-content">
-                <img
-                  mat-card-image
-                  src="{{ tiles2[1].scr }}"
-                  alt="Photo of a Shiba Inu"
-                  style="height: 50px; width: 3%"
-                />
-                <div>
-                  <div class="text-sm">{{ tiles2[1].text }}</div>
-                </div>
-              </mat-card-content>
-            </mat-card>
-          </div>
+        <div class="flex flex-col">
           <div>
             <carousel [arrows]="false" [counter]="false">
               <div class="carousel-slide">
@@ -167,7 +123,6 @@
                 />
               </div>
             </carousel>
-
             <div class="pt-5">
               <p style="color: white">
                 Powered by S10 Plus ® - 2022 - All Rights Reserved
@@ -175,28 +130,6 @@
             </div>
           </div>
         </div>
-        <mat-grid-list cols="2" style="padding-top: 16px">
-          <div *ngFor="let tile of tiles">
-            <mat-grid-tile [rowspan]="tile.rows" [colspan]="tile.cols">
-              <mat-card
-                class="home-card"
-                style="background-color: {{ tile.color }}"
-              >
-                <mat-card-content class="home-card-content">
-                  <img
-                    mat-card-image
-                    src="{{ tile.scr }}"
-                    alt="Photo of a Shiba Inu"
-                    style="height: 50px; width: 3%"
-                  />
-                  <div>
-                    <div>Servicios</div>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </mat-grid-tile>
-          </div>
-        </mat-grid-list>
       </mat-card-content>
     </mat-card>
   </mat-card-content>

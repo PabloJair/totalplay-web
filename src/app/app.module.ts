@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HomeComponent } from './home/home.component';
+import { ServicesComponent } from './services/services.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { CarouselModule } from 'ngx-carousel-ease';
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, ServicesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,8 +26,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatGridListModule,
     MatIconModule,
     MatDividerModule,
+    CarouselModule,
   ],
-  providers: [],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

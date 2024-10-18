@@ -7,39 +7,39 @@ export interface Tile {
   scr: string;
 }
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-services',
+  templateUrl: './services.component.html',
+  styleUrl: './services.component.css',
 })
-export class HomeComponent {
+export class ServicesComponent {
   tiles: Tile[] = [
     {
-      text: 'Servicios',
+      text: 'Internet',
       cols: 1,
       rows: 1,
       color: '#7b7b7b',
-      scr: 'assets/servers.png',
+      scr: 'assets/wifi.png',
     },
     {
-      text: 'Paquetes',
+      text: 'TV Interactiva',
       cols: 1,
       rows: 1,
       color: 'lightgreen',
-      scr: 'assets/satellite.png',
+      scr: 'assets/tv.png',
     },
     {
-      text: '¿Cómo contratar?',
+      text: 'Telefonía Digital',
       cols: 1,
       rows: 1,
       color: 'lightpink',
-      scr: 'assets/bubble-comments.png',
+      scr: 'assets/phone.png',
     },
     {
-      text: 'Pagar Servicio',
+      text: 'Club WIFI',
       cols: 1,
       rows: 1,
       color: '#DDBDF1',
-      scr: 'assets/money.png',
+      scr: 'assets/wifi.png',
     },
   ];
   tiles2: Tile[] = [
@@ -48,7 +48,7 @@ export class HomeComponent {
       cols: 1,
       rows: 1,
       color: '#7b7b7b',
-      scr: 'assets/question.png',
+      scr: 'assets/servers.png',
     },
     {
       text: 'Continuar llamada',
