@@ -1,203 +1,179 @@
-<mat-card id="card" style="text-align: center; background-color: #595959">
-  <mat-card-content
-    style="display: flex; justify-content: center; align-items: center"
-  >
-    <mat-card id="card-content" style="text-align: center; width: 30%">
+<div
+  class="h-screen flex justify-center items-center p-5"
+  style="background-color: #595959"
+>
+  <div class="rounded-xl h-full w-96 overflow-scroll flex flex-col p-1">
+    <mat-card class="pb-5" appearance="outlined">
       <mat-card-title>
         <div class="flex">
-          <div class="flex-none w-14 h-14 pt-5">
-            <mat-icon
-              aria-hidden="false"
-              aria-label="Example home icon"
-              fontIcon="menu"
-            ></mat-icon>
-          </div>
-          <div class="flex items-center">
+          <div class="flex flex-col w-full items-center justify-center">
             <img
               mat-card-image
-              src="assets/pngegg.png"
-              alt="Photo of a Shiba Inu"
+              src="assets/logo_Iztapalapa.png"
+              alt=""
               class="h-16"
             />
           </div>
         </div>
         <mat-divider></mat-divider>
       </mat-card-title>
-      <mat-card-content style="background-color: #1e1f28">
-        <div class="grid grid-cols-2 gap-4 pt-5">
-          <mat-card
-            class="home-card"
-            [routerLink]="['/services']"
-            (click)="({})"
-          >
-            <mat-card-content class="home-card-content">
-              <img
-                mat-card-image
-                src="{{ tiles[0].scr }}"
-                alt="Photo of a Shiba Inu"
-                style="height: 50px; width: 3%"
-              />
-              <div>
-                <div class="text-sm">{{ tiles[0].text }}</div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-          <mat-card
-            class="home-card"
-            (click)="goToLink('https://www.totalplay.com.mx/paquetes')"
-          >
-            <mat-card-content class="home-card-content">
-              <img
-                mat-card-image
-                src="{{ tiles[1].scr }}"
-                alt="Photo of a Shiba Inu"
-                style="height: 50px; width: 3%"
-              />
-              <div>
-                <div class="text-sm">{{ tiles[1].text }}</div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-          <mat-card
-            class="home-card"
-            (click)="goToLink('https://www.totalplay.com.mx/contrata')"
-          >
-            <mat-card-content class="home-card-content">
-              <img
-                mat-card-image
-                src="{{ tiles[2].scr }}"
-                alt="Photo of a Shiba Inu"
-                style="height: 50px; width: 3%"
-              />
-              <div>
-                <div class="text-sm">{{ tiles[2].text }}</div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-          <mat-card
-            class="home-card"
-            [routerLink]="['/services']"
-            (click)="({})"
-          >
-            <mat-card-content class="home-card-content">
-              <img
-                mat-card-image
-                src="{{ tiles[3].scr }}"
-                alt="Photo of a Shiba Inu"
-                style="height: 50px; width: 3%"
-              />
-              <div>
-                <div class="text-sm">{{ tiles[3].text }}</div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-
-        <div class="flex flex-col ...">
-          <div>
-            <img
-              class="pt-5 pb-5 pl-2 h-48 w-96"
-              mat-card-image
-              src="assets/map2.png"
-            />
-          </div>
-          <div class="grid grid-cols-2 gap-1 pt-5">
-            <mat-card
-              class="home-card"
+      <mat-card-content style="background-color: #ffffff">
+        <div class="flex flex-col justify-evenly pt-5">
+          <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
+            <div
+              class="flex items-center justify-center rounded-md h-14 space-x-4"
               (click)="
                 goToLink(
-                  'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em@'
+                  'https://www.iztapalapa.cdmx.gob.mx/directorio/index5.html'
                 )
               "
             >
-              <mat-card-content class="home-card-content">
-                <img
-                  mat-card-image
-                  src="{{ tiles2[0].scr }}"
-                  alt="Photo of a Shiba Inu"
-                  style="height: 50px; width: 3%"
-                />
-                <div>
-                  <div class="text-sm">{{ tiles2[0].text }}</div>
-                </div>
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="home-card">
-              <mat-card-content class="home-card-content">
-                <img
-                  mat-card-image
-                  src="{{ tiles2[1].scr }}"
-                  alt="Photo of a Shiba Inu"
-                  style="height: 50px; width: 3%"
-                />
-                <div>
-                  <div class="text-sm">{{ tiles2[1].text }}</div>
-                </div>
-              </mat-card-content>
-            </mat-card>
-          </div>
-          <div>
-            <carousel [arrows]="false" [counter]="false">
-              <div class="carousel-slide">
-                <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
-                  mat-card-image
-                  src="assets/image1.png"
-                />
-              </div>
-              <div class="carousel-slide">
-                <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
-                  mat-card-image
-                  src="assets/image2.png"
-                />
-              </div>
-              <div class="carousel-slide">
-                <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
-                  mat-card-image
-                  src="assets/image3.png"
-                />
-              </div>
-              <div class="carousel-slide">
-                <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
-                  mat-card-image
-                  src="assets/image4.png"
-                />
-              </div>
-            </carousel>
-
-            <div class="pt-5">
-              <p style="color: white">
-                Powered by S10 Plus ® - 2022 - All Rights Reserved
-              </p>
+              <img
+                class="h-20"
+                mat-card-image
+                src="assets/directorio_iztapalapa.png"
+              />
+            </div>
+            <div
+              class="flex items-center justify-center rounded-md h-14 space-x-4"
+              (click)="goToLink('https://www.iztapalapa.cdmx.gob.mx/agua/')"
+            >
+              <img
+                class="h-20"
+                mat-card-image
+                src="assets/monitoreo-agua.png"
+              />
+            </div>
+            <div
+              class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
+              (click)="
+                goToLink(
+                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Manual.html'
+                )
+              "
+            >
+              <img
+                class="h-20"
+                mat-card-image
+                src="assets/estructura_iztapalapa.png"
+              />
+            </div>
+            <div
+              class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
+              (click)="
+                goToLink(
+                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Programas.html'
+                )
+              "
+            >
+              <img class="h-20" mat-card-image src="assets/programas.png" />
             </div>
           </div>
         </div>
-        <mat-grid-list cols="2" style="padding-top: 16px">
-          <div *ngFor="let tile of tiles">
-            <mat-grid-tile [rowspan]="tile.rows" [colspan]="tile.cols">
-              <mat-card
-                class="home-card"
-                style="background-color: {{ tile.color }}"
-              >
-                <mat-card-content class="home-card-content">
-                  <img
-                    mat-card-image
-                    src="{{ tile.scr }}"
-                    alt="Photo of a Shiba Inu"
-                    style="height: 50px; width: 3%"
-                  />
-                  <div>
-                    <div>Servicios</div>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </mat-grid-tile>
+        <div class="flex flex-col w-full items-center justify-center pt-10">
+          <div class="w-full items-center justify-center">
+            <img
+              class="pt-5 pb-5 pl-20 h-24 w-42"
+              mat-card-image
+              src="assets/buzon.png"
+              (click)="goToLink('https://iztapalapa.cdmx.gob.mx/2contacto/')"
+            />
           </div>
-        </mat-grid-list>
+          <div class="w-full items-center justify-center">
+            <img
+              class="pt-5 pb-5 pl-20 h-24 w-42"
+              mat-card-image
+              src="assets/telefonia.png"
+              (click)="
+                goToLink(
+                  'https://www.iztapalapa.cdmx.gob.mx/1paginas/telefonos.html'
+                )
+              "
+            />
+          </div>
+          <div class="w-full">
+            <img
+              class="pt-5 pb-5 pl-2 h-48"
+              mat-card-image
+              src="assets/alcaldia.png"
+              (click)="goToLink('https://www.atlas.cdmx.gob.mx/IZP/')"
+            />
+          </div>
+
+          <div class="flex flex-col justify-evenly">
+            <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  goToLink(
+                    'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em'
+                  )
+                "
+              >
+                <mat-icon style="color: #02bbe37d">help_outline</mat-icon>
+
+                <span class="text-sm">Chat en linea</span>
+              </div>
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+              >
+                <mat-icon style="color: #b5cf30">call</mat-icon>
+
+                <a href="tel:5558044140" class="text-xs">Continuar llamada</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="h-auto w-auto flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+            (click)="
+              goToLink('https://api.whatsapp.com/send?phone=573113467116')
+            "
+          >
+            <img
+              class="pt-5 pb-5 pl-2 h-16"
+              mat-card-image
+              src="assets/whatsapp.svg"
+            />
+            <a>Chat via Wathsapp</a>
+          </div>
+          <div class="h-full w-full">
+            <carousel
+              class="first-carousel"
+              [arrows]="false"
+              [counter]="false"
+              [responsive]="true"
+              [slideToShow]="3"
+            >
+              <div class="carousel-slide">
+                <img
+                  class="pt-5 pb-5 pl-2 h-48 w-96"
+                  mat-card-image
+                  src="assets/carrusel2.png"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  class="pt-5 pb-5 pl-2 h-48 w-96"
+                  mat-card-image
+                  src="assets/carrusel3.png"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  class="pt-5 pb-5 pl-2 h-48 w-96"
+                  mat-card-image
+                  src="assets/carrusel4.png"
+                />
+              </div>
+            </carousel>
+          </div>
+          <div class="pt-5">
+            <p class="text-xs h-full text-center" style="color: white">
+              Powered by S10 Plus ® - 2024 - All Rights Reserved
+            </p>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
-  </mat-card-content>
-</mat-card>
+  </div>
+</div>

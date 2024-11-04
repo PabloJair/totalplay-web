@@ -62,4 +62,5 @@ export class HomeComponent {
   goToLink(url: string) {
     window.open(url, '_blank');
   }
+  playSound = () => new Audio('assets/totalplayAudio.mp3').play();
 }
