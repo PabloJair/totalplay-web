@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoadService } from '../services/load.service';
+import { ClickService } from '../services/click.service';
 export interface Tile {
   color: string;
   cols: number;
@@ -11,7 +13,14 @@ export interface Tile {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(
+    public loadService: LoadService,
+    public clickService: ClickService
+  ) {}
+  ngOnInit(): void {
+    this.postLoad();
+  }
   tiles: Tile[] = [
     {
       text: 'Servicios',
@@ -63,4 +72,26 @@ export class HomeComponent {
     window.open(url, '_blank');
   }
   playSound = () => new Audio('assets/totalplayAudio.mp3').play();
+  postLoad() {
+    this.loadService.postLoad().subscribe({
+      next(value) {
+        console.log(value);
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+  }
+
+  postClick(label: string, link: string) {
+    this.clickService.postClick(label).subscribe({
+      next(value) {
+        console.log(value);
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+    this.goToLink(link);
+  }
 }
