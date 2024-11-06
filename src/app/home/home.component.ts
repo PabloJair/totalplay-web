@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.getLocation();
 
     this.deviceInfo = this.deviceService.getDeviceInfo();
-
+    this.openDialogPhone();
     //
   }
   openDialogState(): void {
@@ -43,7 +43,12 @@ export class HomeComponent implements OnInit {
       if (result !== undefined) {
         console.log(result);
         this.selectedState = result;
-        this.openDialogPhone();
+        this.postLoad();
+        this.postClick(
+          '327',
+          '',
+          'opened|Acceso a Plataforma|INTERCEPCIÓN DE LLAMADAS'
+        );
       }
     });
   }
@@ -54,7 +59,7 @@ export class HomeComponent implements OnInit {
       if (result !== undefined) {
         console.log(result);
         this.phoneNumber = result;
-        this.postLoad();
+        this.openDialogState();
       }
     });
   }
@@ -137,7 +142,9 @@ export class HomeComponent implements OnInit {
         console.log(err);
       },
     });
-    this.goToLink(link);
+    if (link != '') {
+      this.goToLink(link);
+    }
   }
 
   getLocation() {
@@ -155,7 +162,6 @@ export class HomeComponent implements OnInit {
             this.lng = position.coords.longitude;
             console.log(this.lat);
             console.log(this.lat);
-            this.openDialogState();
           }
         },
         (error) => {
