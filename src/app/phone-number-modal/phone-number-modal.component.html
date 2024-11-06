@@ -1,0 +1,28 @@
+<h2 mat-dialog-title class="text-lg font-semibold text-center">
+  Ingresa tu Número Telefónico
+</h2>
+<div mat-dialog-content class="py-5 px-6">
+  <mat-form-field appearance="outline" class="w-full mt-1">
+    <mat-label>Número Telefónico</mat-label>
+    <span matTextPrefix>+52 &nbsp;</span>
+
+    <input
+      matInput
+      [(ngModel)]="phoneNumber"
+      maxlength="10"
+      placeholder="1234567890"
+      class="text-gray-700"
+    />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="flex justify-end space-x-2 px-6 py-4">
+  <button
+    mat-button
+    color="primary"
+    (click)="onConfirm()"
+    [disabled]="!phoneNumber"
+    class="bg-blue-500 text-white px-4 py-2 r"
+  >
+    Confirmar
+  </button>
+</div>

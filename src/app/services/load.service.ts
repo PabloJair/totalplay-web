@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
+import { DeviceInfo } from 'ngx-device-detector';
 
 @Injectable({ providedIn: 'root' })
 export class LoadService {
@@ -7,16 +8,26 @@ export class LoadService {
 
   constructor(private http: HttpClient) {}
 
-  postLoad() {
+  postLoad(
+    deviceInfo: DeviceInfo,
+    lat: number,
+    lng: number,
+    selecteState: string,
+    phone: string
+  ) {
     const body = {
-      application_name: 'Demo para TotalPlay',
-      id_application: '20',
-      id_action: '334',
-      action: 'opened',
-      activity: 'Acceso a Plataforma',
-      label: 'INTERCEPCIÓN DE LLAMADAS',
-      concept: 'INTERCEPCIÓN DE LLAMADAS',
-      level: '0',
+      android_version: '' + deviceInfo.browser + '/' + deviceInfo.os,
+      id_application: '19',
+      model: deviceInfo.device,
+      other_information: {
+        lat: lat,
+        long: lng,
+        origin: deviceInfo.deviceType,
+        state: selecteState,
+        tel_marcado: '',
+      },
+      phone_id: '',
+      phone_number: phone,
     };
     return this.http.post<any>(this.API_URL, body);
   }

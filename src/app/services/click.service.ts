@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,17 +8,17 @@ export class ClickService {
   readonly API_URL = 'https://s10plus.com:8443/wsdemos/rest/action/click';
 
   constructor(private http: HttpClient) {}
-  postClick(label: String) {
+  postClick(id: String, other_information: string, token: string) {
     const body = {
-      application_name: 'Demo para TotalPlay',
-      id_application: '20',
-      id_action: '334',
-      action: 'nav',
-      activity: 'CLICK/DETALL',
-      label: label,
-      concept: label,
-      level: '0',
+      id_action: id,
+      other_information: other_information,
     };
-    return this.http.post<any>(this.API_URL, body);
+    const headers = new HttpHeaders({ token: token });
+
+    return this.http.post<any>(this.API_URL, body, {
+      headers: {
+        token: token,
+      },
+    });
   }
 }

@@ -1,0 +1,24 @@
+<h2 mat-dialog-title class="text-lg font-semibold text-center">
+  Selecciona un Estado
+</h2>
+<div mat-dialog-content class="py-4 px-6">
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="selectedState">
+      <mat-option *ngFor="let state of states | keyvalue" [value]="state.value">
+        {{ state.key }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="flex justify-end space-x-2 px-6 py-4">
+  <button
+    mat-button
+    color="primary"
+    (click)="onConfirm()"
+    [disabled]="!selectedState"
+    class="bg-blue-500 text-white px-4 py-2 rounded"
+  >
+    Confirmar
+  </button>
+</div>
