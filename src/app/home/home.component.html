@@ -38,7 +38,13 @@
             </div>
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4"
-              (click)="goToLink('https://www.iztapalapa.cdmx.gob.mx/agua/')"
+              (click)="
+                postClick(
+                  '318',
+                  'https://www.iztapalapa.cdmx.gob.mx/agua/',
+                  'nav|CLICK/DETALLE:|Monitoreo de agua|Monitoreo de agua'
+                )
+              "
             >
               <img
                 class="h-20"
@@ -49,8 +55,10 @@
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
               (click)="
-                goToLink(
-                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Manual.html'
+                postClick(
+                  '319',
+                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Manual.html',
+                  'nav|CLICK/DETALLE:|Estructura|Estructura'
                 )
               "
             >
@@ -63,8 +71,10 @@
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
               (click)="
-                goToLink(
-                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Programas.html'
+                postClick(
+                  '320',
+                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Programas.html',
+                  'nav|CLICK/DETALLE:|Programas sociales|Programas sociales'
                 )
               "
             >
@@ -78,7 +88,13 @@
               class="pt-5 pb-5 pl-20 h-24 w-42"
               mat-card-image
               src="assets/buzon.png"
-              (click)="goToLink('https://iztapalapa.cdmx.gob.mx/2contacto/')"
+              (click)="
+                postClick(
+                  '321',
+                  'https://iztapalapa.cdmx.gob.mx/2contacto/',
+                  'nav|CLICK/DETALLE:|Programas sociales|Programas sociales'
+                )
+              "
             />
           </div>
           <div class="w-full items-center justify-center">
@@ -87,8 +103,10 @@
               mat-card-image
               src="assets/telefonia.png"
               (click)="
-                goToLink(
-                  'https://www.iztapalapa.cdmx.gob.mx/1paginas/telefonos.html'
+                postClick(
+                  '322',
+                  'https://www.iztapalapa.cdmx.gob.mx/1paginas/telefonos.html',
+                  'nav|CLICK/DETALLE:|Teléfono de emergencia|Teléfono de emergencia'
                 )
               "
             />
@@ -98,7 +116,13 @@
               class="pt-5 pb-5 pl-2 h-48"
               mat-card-image
               src="assets/alcaldia.png"
-              (click)="goToLink('https://www.atlas.cdmx.gob.mx/IZP/')"
+              (click)="
+                postClick(
+                  '323',
+                  'https://www.atlas.cdmx.gob.mx/IZP/',
+                  'nav|CLICK/DETALLE:|Geovisor|Geovisor'
+                )
+              "
             />
           </div>
 
@@ -107,8 +131,10 @@
               <div
                 class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
                 (click)="
-                  goToLink(
-                    'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em'
+                  postClick(
+                    '324',
+                    'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em',
+                    'nav|CLICK/DETALLE:|Chat en Línea|Chat en Línea'
                   )
                 "
               >
@@ -118,6 +144,13 @@
               </div>
               <div
                 class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  postClick(
+                    '325',
+                    '',
+                    'nav|CLICK/DETALLE:|Continuar la Llamada|Continuar la Llamada'
+                  )
+                "
               >
                 <mat-icon style="color: #b5cf30">call</mat-icon>
 
@@ -128,7 +161,11 @@
           <div
             class="h-auto w-auto flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
             (click)="
-              goToLink('https://api.whatsapp.com/send?phone=573113467116')
+              postClick(
+                '326',
+                'https://api.whatsapp.com/send?phone=573113467116',
+                'nav|CLICK/DETALLE:|Chat via whatsapp|Chat via whatsapp'
+              )
             "
           >
             <img
