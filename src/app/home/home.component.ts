@@ -137,7 +137,9 @@ export class HomeComponent implements OnInit {
         console.log(err);
       },
     });
-    this.goToLink(link);
+    if (link != '') {
+      this.goToLink(link);
+    }
   }
 
   getLocation() {

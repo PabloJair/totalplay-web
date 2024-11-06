@@ -7,98 +7,98 @@
       <mat-card-title>
         <div class="flex">
           <div class="flex flex-col w-full items-center justify-center">
-            <img
-              mat-card-image
-              src="assets/logo_Iztapalapa.png"
-              alt=""
-              class="h-16"
-            />
+            <img mat-card-image src="assets/pngegg.png" alt="" class="h-16" />
           </div>
         </div>
         <mat-divider></mat-divider>
       </mat-card-title>
-      <mat-card-content style="background-color: #ffffff">
+      <mat-card-content style="background-color: #1e1f28">
         <div class="flex flex-col justify-evenly pt-5">
           <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4"
+              [routerLink]="['/services']"
               (click)="
-                postClick(
-                  '317',
-                  'https://www.iztapalapa.cdmx.gob.mx/directorio/index5.html',
-                  'nav|CLICK/DETALLE:|Directorio|Directorio'
-                )
+                postClick('328', '', 'nav|CLICK/DETALLE:|Servicios|Servicios')
               "
             >
-              <img
-                class="h-20"
-                mat-card-image
-                src="assets/directorio_iztapalapa.png"
-              />
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
+              >
+                <mat-icon style="color: #02bbe37d">lan</mat-icon>
+
+                <a href="tel:5558044140" class="text-xs">Servicios</a>
+              </div>
             </div>
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4"
-              (click)="goToLink('https://www.iztapalapa.cdmx.gob.mx/agua/')"
+              (click)="
+                postClick(
+                  '329',
+                  'https://www.totalplay.com.mx/paquetes',
+                  'nav|CLICK/DETALLE:|Paquetes|Paquetes'
+                )
+              "
             >
-              <img
-                class="h-20"
-                mat-card-image
-                src="assets/monitoreo-agua.png"
-              />
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
+              >
+                <mat-icon style="color: #b5cf30">satellite_alt</mat-icon>
+
+                <a href="tel:5558044140" class="text-xs">Paquetes</a>
+              </div>
             </div>
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
               (click)="
-                goToLink(
-                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Manual.html'
+                postClick(
+                  '330',
+                  'https://www.totalplay.com.mx/contrata',
+                  'nav|CLICK/DETALLE:|Como contratar|Como contratar'
                 )
               "
             >
-              <img
-                class="h-20"
-                mat-card-image
-                src="assets/estructura_iztapalapa.png"
-              />
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
+              >
+                <mat-icon style="color: #faaf3f">contact_support</mat-icon>
+
+                <a href="tel:5558044140" class="text-xs">¿Cómo contratar?</a>
+              </div>
             </div>
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
               (click)="
-                goToLink(
-                  'https://www.iztapalapa.cdmx.gob.mx/2alcaldia/Programas.html'
+                postClick(
+                  '331',
+                  '',
+                  'nav|CLICK/DETALLE:|Pagar servicio|Pagar servicio'
                 )
               "
             >
-              <img class="h-20" mat-card-image src="assets/programas.png" />
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
+              >
+                <mat-icon style="color: #ec1a3c">payments</mat-icon>
+
+                <a href="tel:5558044140" class="text-xs">Pagar Servicio</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="flex flex-col w-full items-center justify-center pt-10">
-          <div class="w-full items-center justify-center">
-            <img
-              class="pt-5 pb-5 pl-20 h-24 w-42"
-              mat-card-image
-              src="assets/buzon.png"
-              (click)="goToLink('https://iztapalapa.cdmx.gob.mx/2contacto/')"
-            />
-          </div>
-          <div class="w-full items-center justify-center">
-            <img
-              class="pt-5 pb-5 pl-20 h-24 w-42"
-              mat-card-image
-              src="assets/telefonia.png"
-              (click)="
-                goToLink(
-                  'https://www.iztapalapa.cdmx.gob.mx/1paginas/telefonos.html'
-                )
-              "
-            />
-          </div>
           <div class="w-full">
             <img
               class="pt-5 pb-5 pl-2 h-48"
               mat-card-image
-              src="assets/alcaldia.png"
-              (click)="goToLink('https://www.atlas.cdmx.gob.mx/IZP/')"
+              src="assets/map2.png"
+              (click)="
+                postClick(
+                  '332',
+                  '',
+                  'nav|CLICK/DETALLE:|Oficina cerca de ti|Oficina cerca de ti'
+                )
+              "
             />
           </div>
 
@@ -107,8 +107,10 @@
               <div
                 class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
                 (click)="
-                  goToLink(
-                    'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em'
+                  postClick(
+                    '333',
+                    'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em@',
+                    'nav|CLICK/DETALLE:|Soporte|Soporte'
                   )
                 "
               >
@@ -118,6 +120,13 @@
               </div>
               <div
                 class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  postClick(
+                    '334',
+                    '',
+                    'nav|CLICK/DETALLE:|Continuar la llamada|Continuar la llamada'
+                  )
+                "
               >
                 <mat-icon style="color: #b5cf30">call</mat-icon>
 
@@ -148,23 +157,30 @@
             >
               <div class="carousel-slide">
                 <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
+                  class="pt-5 pb-5 pl-2 h-32"
                   mat-card-image
-                  src="assets/carrusel2.png"
+                  src="assets/image1.png"
                 />
               </div>
               <div class="carousel-slide">
                 <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
+                  class="pt-5 pb-5 pl-2 h-32 w-96"
                   mat-card-image
-                  src="assets/carrusel3.png"
+                  src="assets/image2.png"
                 />
               </div>
               <div class="carousel-slide">
                 <img
-                  class="pt-5 pb-5 pl-2 h-48 w-96"
+                  class="pt-5 pb-5 pl-2 h-32 w-96"
                   mat-card-image
-                  src="assets/carrusel4.png"
+                  src="assets/image3.png"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  class="pt-5 pb-5 pl-2 h-32 w-96"
+                  mat-card-image
+                  src="assets/image4.png"
                 />
               </div>
             </carousel>
