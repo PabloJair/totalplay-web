@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { ClickService } from '../services/click.service';
+import { LoadService } from '../services/load.service';
 export interface Tile {
   color: string;
   cols: number;
@@ -12,6 +15,11 @@ export interface Tile {
   styleUrl: './services.component.css',
 })
 export class ServicesComponent {
+  constructor(
+    public loadService: LoadService,
+    public clickService: ClickService,
+    private deviceService: DeviceDetectorService
+  ) {}
   tiles: Tile[] = [
     {
       text: 'Internet',
