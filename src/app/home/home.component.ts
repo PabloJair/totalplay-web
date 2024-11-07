@@ -5,6 +5,7 @@ import { StateSelectorDialogComponent } from '../state-selector-dialog/state-sel
 import { MatDialog } from '@angular/material/dialog';
 import { PhoneNumberModalComponent } from '../phone-number-modal/phone-number-modal.component';
 import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
+import { Router } from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -25,7 +26,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public loadService: LoadService,
     public clickService: ClickService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private router: Router
   ) {}
   readonly dialog = inject(MatDialog);
   ngOnInit(): void {
@@ -39,9 +41,7 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(StateSelectorDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
       if (result !== undefined) {
-        console.log(result);
         this.selectedState = result;
         this.postLoad();
         this.postClick(
@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
     const dialogRefPhone = this.dialog.open(PhoneNumberModalComponent);
     dialogRefPhone.afterClosed().subscribe((result) => {
       if (result !== undefined) {
-        console.log(result);
         this.phoneNumber = result;
         this.openDialogState();
       }
@@ -129,21 +128,24 @@ export class HomeComponent implements OnInit {
       .pipe()
       .subscribe((response) => {
         this.token = response.token;
-        console.log(this.token);
       });
   }
 
-  postClick(id: string, link: string, other_information: string) {
+  postClick(
+    id: string,
+    link: string,
+    other_information: string,
+    isChange: boolean = false
+  ) {
     this.clickService.postClick(id, other_information, this.token).subscribe({
-      next(value) {
-        console.log(value.token);
-      },
-      error(err) {
-        console.log(err);
-      },
+      next(value) {},
+      error(err) {},
     });
     if (link != '') {
       this.goToLink(link);
+    }
+    if (isChange) {
+      this.one();
     }
   }
 
@@ -152,24 +154,22 @@ export class HomeComponent implements OnInit {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           if (position) {
-            console.log(
-              'Latitude: ' +
-                position.coords.latitude +
-                'Longitude: ' +
-                position.coords.longitude
-            );
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-            console.log(this.lat);
-            console.log(this.lat);
           }
         },
-        (error) => {
-          console.log(error);
-        }
+        (error) => {}
       );
     } else {
       alert('Geolocation is not supported by this browser.');
     }
+  }
+
+  one(): void {
+    this.router.navigate(['services'], {
+      state: {
+        response: { token: this.token },
+      },
+    });
   }
 }

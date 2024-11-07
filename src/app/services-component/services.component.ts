@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { ClickService } from '../services/click.service';
+import { LoadService } from '../services/load.service';
+import { Router } from '@angular/router';
 export interface Tile {
   color: string;
   cols: number;
@@ -11,7 +15,28 @@ export interface Tile {
   templateUrl: './services.component.html',
   styleUrl: './services.component.css',
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
+  data: any;
+  token = '';
+  constructor(
+    public loadService: LoadService,
+    public clickService: ClickService,
+    private deviceService: DeviceDetectorService,
+    private router: Router
+  ) {
+    this.data = this.router?.getCurrentNavigation()?.extras.state?.['response'];
+    debugger;
+    if (!this.data) {
+      this.router.navigate(['']);
+    } else {
+      this.token = this.data.token;
+      debugger;
+    }
+  }
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
   tiles: Tile[] = [
     {
       text: 'Internet',
@@ -61,5 +86,20 @@ export class ServicesComponent {
 
   goToLink(url: string) {
     window.open(url, '_blank');
+  }
+
+  postClick(
+    id: string,
+    link: string,
+    other_information: string,
+    isChange: boolean = false
+  ) {
+    this.clickService.postClick(id, other_information, this.token).subscribe({
+      next(value) {},
+      error(err) {},
+    });
+    if (link != '') {
+      this.goToLink(link);
+    }
   }
 }

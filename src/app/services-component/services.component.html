@@ -22,7 +22,13 @@
           <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
             <div
               class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-              (click)="goToLink('https://www.totalplay.com.mx/internet')"
+              (click)="
+                postClick(
+                  '350',
+                  'https://www.totalplay.com.mx/internet',
+                  'nav|CLICK/DETALLE:|Internet|Internet'
+                )
+              "
             >
               <mat-icon style="color: #02bbe37d">wifi</mat-icon>
 
@@ -30,7 +36,13 @@
             </div>
             <div
               class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-              (click)="goToLink('https://www.totalplay.com.mx/totalplaytv')"
+              (click)="
+                postClick(
+                  '351',
+                  'https://www.totalplay.com.mx/totalplaytv',
+                  'nav|CLICK/DETALLE:|TV Interactiva|TV Interactiva'
+                )
+              "
             >
               <mat-icon style="color: #b5cf30">connected_tv</mat-icon>
 
@@ -38,7 +50,13 @@
             </div>
             <div
               class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-              (click)="goToLink('https://www.totalplay.com.mx/telefonia')"
+              (click)="
+                postClick(
+                  '352',
+                  'https://www.totalplay.com.mx/telefonia',
+                  'nav|CLICK/DETALLE:|Telefonía Digital|Telefonía Digital'
+                )
+              "
             >
               <mat-icon style="color: #faaf3f">phone_iphone</mat-icon>
 
@@ -47,7 +65,11 @@
             <div
               class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
               (click)="
-                goToLink('https://www.totalplay.com.mx/clubwifitotalplay')
+                postClick(
+                  '352',
+                  'https://www.totalplay.com.mx/clubwifitotalplay',
+                  'nav|CLICK/DETALLE:|Club Wifi|Club Wifi'
+                )
               "
             >
               <mat-icon style="color: #ec1a3c">wifi</mat-icon>

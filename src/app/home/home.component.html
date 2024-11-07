@@ -17,9 +17,13 @@
           <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
             <div
               class="flex items-center justify-center rounded-md h-14 space-x-4"
-              [routerLink]="['/services']"
               (click)="
-                postClick('328', '', 'nav|CLICK/DETALLE:|Servicios|Servicios')
+                postClick(
+                  '328',
+                  '',
+                  'nav|CLICK/DETALLE:|Servicios|Servicios',
+                  true
+                )
               "
             >
               <div
