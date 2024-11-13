@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
   ) {}
   readonly dialog = inject(MatDialog);
   ngOnInit(): void {
-    this.spinner.show();
     this.getLocation();
 
     this.deviceInfo = this.deviceService.getDeviceInfo();
@@ -153,24 +152,11 @@ export class HomeComponent implements OnInit {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           if (position) {
-            console.log(
-              'Latitude: ' +
-                position.coords.latitude +
-                'Longitude: ' +
-                position.coords.longitude
-            );
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-            console.log(this.lat);
-            console.log(this.lat);
-            this.spinner.hide();
           }
         },
-        (error) => {
-          alert('activa los permisos');
-
-          console.log(error);
-        }
+        (error) => {}
       );
     } else {
       alert('Geolocation is not supported by this browser.');
