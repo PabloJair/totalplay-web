@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -25,9 +25,12 @@ import { MatButton } from '@angular/material/button';
   templateUrl: './phone-number-modal.component.html',
   styleUrl: './phone-number-modal.component.css',
 })
-export class PhoneNumberModalComponent {
+export class PhoneNumberModalComponent implements OnInit {
   phoneNumber: string = '';
   constructor(public dialogRef: MatDialogRef<PhoneNumberModalComponent>) {}
+  ngOnInit(): void {
+    this.dialogRef.disableClose = true;
+  }
   onConfirm(): void {
     // Devuelve el número telefónico al cerrar el modal
     this.dialogRef.close(this.phoneNumber);

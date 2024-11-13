@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   MatDialogActions,
   MatDialogContent,
@@ -27,7 +27,7 @@ import { MatButton } from '@angular/material/button';
   templateUrl: './state-selector-dialog.component.html',
   styleUrl: './state-selector-dialog.component.css',
 })
-export class StateSelectorDialogComponent {
+export class StateSelectorDialogComponent implements OnInit {
   states: { [key: string]: string } = {
     AGUASCALIENTES: 'AGS.',
     'BAJA CALIFORNIA': 'BC.',
@@ -65,6 +65,9 @@ export class StateSelectorDialogComponent {
   selectedState: string = '';
 
   constructor(public dialogRef: MatDialogRef<StateSelectorDialogComponent>) {}
+  ngOnInit(): void {
+    this.dialogRef.disableClose = true;
+  }
 
   onConfirm(): void {
     this.dialogRef.close(this.selectedState);

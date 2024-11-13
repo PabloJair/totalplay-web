@@ -37,18 +37,12 @@ export class HomeComponent implements OnInit {
   }
   openDialogState(): void {
     const dialogRef = this.dialog.open(StateSelectorDialogComponent);
-
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result !== undefined) {
         console.log(result);
         this.selectedState = result;
         this.postLoad();
-        this.postClick(
-          '327',
-          '',
-          'opened|Acceso a Plataforma|INTERCEPCIÓN DE LLAMADAS'
-        );
       }
     });
   }
@@ -129,7 +123,11 @@ export class HomeComponent implements OnInit {
       .pipe()
       .subscribe((response) => {
         this.token = response.token;
-        console.log(this.token);
+        this.postClick(
+          '327',
+          '',
+          'opened|Acceso a Plataforma|INTERCEPCIÓN DE LLAMADAS'
+        );
       });
   }
 
