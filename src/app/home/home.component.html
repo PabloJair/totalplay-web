@@ -1,4 +1,5 @@
 <div
+  *ngIf="myFlag"
   class="h-screen flex justify-center items-center p-5"
   style="background-color: #595959"
 >
@@ -31,7 +32,7 @@
               >
                 <mat-icon style="color: #02bbe37d">lan</mat-icon>
 
-                <a href="tel:5558044140" class="text-xs">Servicios</a>
+                <a class="text-xs">Servicios</a>
               </div>
             </div>
             <div
@@ -49,7 +50,7 @@
               >
                 <mat-icon style="color: #b5cf30">satellite_alt</mat-icon>
 
-                <a href="tel:5558044140" class="text-xs">Paquetes</a>
+                <a class="text-xs">Paquetes</a>
               </div>
             </div>
             <div
@@ -67,7 +68,7 @@
               >
                 <mat-icon style="color: #faaf3f">contact_support</mat-icon>
 
-                <a href="tel:5558044140" class="text-xs">¿Cómo contratar?</a>
+                <a class="text-xs">¿Cómo contratar?</a>
               </div>
             </div>
             <div
@@ -85,7 +86,7 @@
               >
                 <mat-icon style="color: #ec1a3c">payments</mat-icon>
 
-                <a href="tel:5558044140" class="text-xs">Pagar Servicio</a>
+                <a class="text-xs">Pagar Servicio</a>
               </div>
             </div>
           </div>
@@ -141,7 +142,11 @@
           <div
             class="h-auto w-auto flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
             (click)="
-              goToLink('https://api.whatsapp.com/send?phone=573113467116')
+              postClick(
+                '354',
+                'https://api.whatsapp.com/send?phone=573113467116',
+                'nav|CLICK/DETALLE:|Chat via whatsapp|Chat via whatsapp'
+              )
             "
           >
             <img
@@ -149,7 +154,7 @@
               mat-card-image
               src="assets/whatsapp.svg"
             />
-            <a>Chat via Wathsapp</a>
+            <a>Chat via Whatsapp</a>
           </div>
           <div class="h-full w-full">
             <carousel
@@ -205,5 +210,145 @@
         </div>
       </mat-card-content>
     </mat-card>
+  </div>
+</div>
+<div *ngIf="!myFlag">
+  <div
+    class="h-screen flex justify-center items-center p-5"
+    style="background-color: #595959"
+  >
+    <div class="rounded-xl h-full w-96 overflow-scroll flex flex-col p-1">
+      <mat-card class="pb-5 h-screen" appearance="outlined">
+        <mat-card-title>
+          <div class="flex">
+            <div class="flex flex-row align-middle h-full pt-5" (click)="one()">
+              <mat-icon>arrow_back</mat-icon>
+            </div>
+            <div class="flex flex-col w-full items-center justify-center">
+              <img
+                mat-card-image
+                src="assets/pngegg.png"
+                alt="Photo of a Shiba Inu"
+                class="h-16"
+              />
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-card-title>
+        <mat-card-content class="h-screen" style="background-color: #1e1f28">
+          <div class="flex flex-col justify-evenly pt-5">
+            <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  postClick(
+                    '350',
+                    'https://www.totalplay.com.mx/internet',
+                    'nav|CLICK/DETALLE:|Internet|Internet'
+                  )
+                "
+              >
+                <mat-icon style="color: #02bbe37d">wifi</mat-icon>
+
+                <span class="text-sm">Internet</span>
+              </div>
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  postClick(
+                    '351',
+                    'https://www.totalplay.com.mx/totalplaytv',
+                    'nav|CLICK/DETALLE:|TV Interactiva|TV Interactiva'
+                  )
+                "
+              >
+                <mat-icon style="color: #b5cf30">connected_tv</mat-icon>
+
+                <span class="text-sm">TV Interactiva</span>
+              </div>
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  postClick(
+                    '352',
+                    'https://www.totalplay.com.mx/telefonia',
+                    'nav|CLICK/DETALLE:|Telefonía Digital|Telefonía Digital'
+                  )
+                "
+              >
+                <mat-icon style="color: #faaf3f">phone_iphone</mat-icon>
+
+                <span class="text-sm">Telefonía Digital</span>
+              </div>
+              <div
+                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+                (click)="
+                  postClick(
+                    '353',
+                    'https://www.totalplay.com.mx/clubwifitotalplay',
+                    'nav|CLICK/DETALLE:|Club Wifi|Club Wifi'
+                  )
+                "
+              >
+                <mat-icon style="color: #ec1a3c">wifi</mat-icon>
+
+                <span class="text-sm">Club WIFI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <div>
+              <carousel [arrows]="false" [counter]="false">
+                <div class="carousel-slide">
+                  <img
+                    class="pt-5 pb-5 pl-2 h-48 w-96"
+                    mat-card-image
+                    src="assets/image1.png"
+                  />
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    class="pt-5 pb-5 pl-2 h-48 w-96"
+                    mat-card-image
+                    src="assets/image2.png"
+                  />
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    class="pt-5 pb-5 pl-2 h-48 w-96"
+                    mat-card-image
+                    src="assets/image3.png"
+                  />
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    class="pt-5 pb-5 pl-2 h-48 w-96"
+                    mat-card-image
+                    src="assets/image4.png"
+                  />
+                </div>
+              </carousel>
+              <div class="pt-5">
+                <p class="text-xs h-full text-center" style="color: white">
+                  Powered by S10 Plus ® - 2022 - All Rights Reserved
+                </p>
+                <div
+                  class="flex items-center justify-center inline-block align-middle"
+                >
+                  <mat-icon style="color: white">copyright</mat-icon>
+                  <p
+                    class="text-xs h-full text-center pt-3"
+                    style="color: white"
+                  >
+                    Copyright S10PLUS USA LLC
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

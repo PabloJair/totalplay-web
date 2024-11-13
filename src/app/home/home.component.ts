@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   deviceInfo!: DeviceInfo;
   public lat: any;
   public lng: any;
+  myFlag = true;
   constructor(
     public loadService: LoadService,
     public clickService: ClickService,
@@ -44,11 +45,6 @@ export class HomeComponent implements OnInit {
       if (result !== undefined) {
         this.selectedState = result;
         this.postLoad();
-        this.postClick(
-          '327',
-          '',
-          'opened|Acceso a Plataforma|INTERCEPCIÓN DE LLAMADAS'
-        );
       }
     });
   }
@@ -128,6 +124,12 @@ export class HomeComponent implements OnInit {
       .pipe()
       .subscribe((response) => {
         this.token = response.token;
+        debugger;
+        this.postClick(
+          '327',
+          '',
+          'opened|Acceso a Plataforma|INTERCEPCIÓN DE LLAMADAS'
+        );
       });
   }
 
@@ -137,15 +139,17 @@ export class HomeComponent implements OnInit {
     other_information: string,
     isChange: boolean = false
   ) {
-    this.clickService.postClick(id, other_information, this.token).subscribe({
-      next(value) {},
-      error(err) {},
-    });
+    this.clickService
+      .postClick(id, other_information, this.token)
+      .subscribe((response) => {
+        console.log(response);
+        debugger;
+        if (isChange) {
+          this.one();
+        }
+      });
     if (link != '') {
       this.goToLink(link);
-    }
-    if (isChange) {
-      this.one();
     }
   }
 
@@ -166,10 +170,11 @@ export class HomeComponent implements OnInit {
   }
 
   one(): void {
-    this.router.navigate(['services'], {
+    /*  this.router.navigate(['services'], {
       state: {
         response: { token: this.token },
       },
-    });
+    }); */
+    this.myFlag = !this.myFlag;
   }
 }
