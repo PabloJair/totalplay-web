@@ -17,7 +17,7 @@ export class LoadService {
   ) {
     const body = {
       android_version: '' + deviceInfo.browser + '/' + deviceInfo.os,
-      id_application: '19',
+      id_application: '20',
       model: deviceInfo.device,
       other_information: {
         lat: lat,
