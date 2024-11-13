@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PhoneNumberModalComponent } from '../phone-number-modal/phone-number-modal.component';
 import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 export interface Tile {
   color: string;
   cols: number;
@@ -23,15 +23,19 @@ export class HomeComponent implements OnInit {
   deviceInfo!: DeviceInfo;
   public lat: any;
   public lng: any;
+  public titleLoader: string = 'Cargando';
+
   myFlag = true;
   constructor(
     public loadService: LoadService,
     public clickService: ClickService,
     private deviceService: DeviceDetectorService,
+    private spinner: NgxSpinnerService,
     private router: Router
   ) {}
   readonly dialog = inject(MatDialog);
   ngOnInit(): void {
+    this.spinner.show;
     this.getLocation();
 
     this.deviceInfo = this.deviceService.getDeviceInfo();
@@ -44,6 +48,8 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
         this.selectedState = result;
+        this.spinner.show();
+        this.titleLoader = 'Actualizando Información';
         this.postLoad();
       }
     });
@@ -124,7 +130,9 @@ export class HomeComponent implements OnInit {
       .pipe()
       .subscribe((response) => {
         this.token = response.token;
-        debugger;
+        this.spinner.hide();
+        this.titleLoader = 'Cargando';
+
         this.postClick(
           '327',
           '',
@@ -142,8 +150,6 @@ export class HomeComponent implements OnInit {
     this.clickService
       .postClick(id, other_information, this.token)
       .subscribe((response) => {
-        console.log(response);
-        debugger;
         if (isChange) {
           this.one();
         }
@@ -160,6 +166,7 @@ export class HomeComponent implements OnInit {
           if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
+            this.spinner.hide();
           }
         },
         (error) => {}

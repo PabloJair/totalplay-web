@@ -25,12 +25,11 @@ export class ServicesComponent implements OnInit {
     private router: Router
   ) {
     this.data = this.router?.getCurrentNavigation()?.extras.state?.['response'];
-    debugger;
+
     if (!this.data) {
       this.router.navigate(['']);
     } else {
       this.token = this.data.token;
-      debugger;
     }
   }
 
