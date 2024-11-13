@@ -5,6 +5,7 @@ import { StateSelectorDialogComponent } from '../state-selector-dialog/state-sel
 import { MatDialog } from '@angular/material/dialog';
 import { PhoneNumberModalComponent } from '../phone-number-modal/phone-number-modal.component';
 import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 export interface Tile {
   color: string;
@@ -22,13 +23,16 @@ export class HomeComponent implements OnInit {
   deviceInfo!: DeviceInfo;
   public lat: any;
   public lng: any;
+  public titleLoader: string = 'Cargando';
   constructor(
     public loadService: LoadService,
     public clickService: ClickService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private spinner: NgxSpinnerService
   ) {}
   readonly dialog = inject(MatDialog);
   ngOnInit(): void {
+    this.spinner.show();
     this.getLocation();
 
     this.deviceInfo = this.deviceService.getDeviceInfo();
@@ -42,6 +46,8 @@ export class HomeComponent implements OnInit {
       if (result !== undefined) {
         console.log(result);
         this.selectedState = result;
+        this.spinner.show();
+        this.titleLoader = 'Actualizando Información';
         this.postLoad();
       }
     });
@@ -123,6 +129,8 @@ export class HomeComponent implements OnInit {
       .pipe()
       .subscribe((response) => {
         this.token = response.token;
+        this.spinner.hide();
+        this.titleLoader = 'Cargando';
         this.postClick(
           '327',
           '',
@@ -132,14 +140,9 @@ export class HomeComponent implements OnInit {
   }
 
   postClick(id: string, link: string, other_information: string) {
-    this.clickService.postClick(id, other_information, this.token).subscribe({
-      next(value) {
-        console.log(value.token);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    this.clickService
+      .postClick(id, other_information, this.token)
+      .subscribe((response) => {});
     if (link != '') {
       this.goToLink(link);
     }
@@ -160,6 +163,7 @@ export class HomeComponent implements OnInit {
             this.lng = position.coords.longitude;
             console.log(this.lat);
             console.log(this.lat);
+            this.spinner.hide();
           }
         },
         (error) => {

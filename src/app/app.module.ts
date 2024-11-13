@@ -15,6 +15,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CarouselModule } from 'ngx-carousel-ease';
 import { provideHttpClient } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ServicesComponent],
@@ -29,6 +30,7 @@ import { provideHttpClient } from '@angular/common/http';
     MatIconModule,
     MatDividerModule,
     CarouselModule,
+    NgxSpinnerModule,
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
