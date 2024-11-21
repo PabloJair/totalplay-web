@@ -1,93 +1,112 @@
 <div
-  *ngIf="myFlag"
+  *ngIf="!myFlag"
   class="h-screen flex justify-center items-center p-5"
   style="background-color: #595959"
 >
   <div class="rounded-xl h-full w-96 overflow-scroll flex flex-col p-1">
     <mat-card class="pb-5" appearance="outlined">
       <mat-card-title>
-        <div class="flex">
-          <div class="flex flex-col w-full items-center justify-center">
-            <img mat-card-image src="assets/pngegg.png" alt="" class="h-16" />
+        <div class="flex" style="background-color: #66072f">
+          <div class="flex flex-row align-middle h-full pt-5" (click)="one()">
+            <mat-icon [ngStyle]="{ color: 'white' }">arrow_back</mat-icon>
+          </div>
+          <div class="flex flex-row w-full h-28 items-center justify-center">
+            <img
+              mat-card-image
+              src="assets/logo_alvaro.png"
+              alt=""
+              class="h-16 pl-5"
+            />
+            <p class="text-center text-white text-xs">
+              Transparencia y participación ciudadana para un mejor futuro.
+            </p>
           </div>
         </div>
         <mat-divider></mat-divider>
       </mat-card-title>
-      <mat-card-content style="background-color: #1e1f28">
+      <mat-card-content>
         <div class="flex flex-col justify-evenly pt-5">
-          <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
+          <div class="grid grid-cols-3 gap-3 px-1 py-1 h-42">
             <div
-              class="flex items-center justify-center rounded-md h-14 space-x-4"
+              class="flex items-center justify-center rounded-md h-32 space-x-4"
               (click)="
                 postClick(
-                  '328',
-                  '',
-                  'nav|CLICK/DETALLE:|Servicios|Servicios',
-                  true
+                  '356',
+                  'https://311locatel.cdmx.gob.mx/',
+                  'nav|CLICK/DETALLE:|Módulo Digital|Módulo Digital',
+                  false
                 )
               "
             >
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
-              >
-                <mat-icon style="color: #02bbe37d">lan</mat-icon>
-
-                <a class="text-xs">Servicios</a>
-              </div>
+              <img
+                class="h-32"
+                mat-card-image
+                src="assets/modulo_digital.png"
+              />
             </div>
             <div
-              class="flex items-center justify-center rounded-md h-14 space-x-4"
+              class="flex items-center justify-center rounded-md h-32 space-x-4"
               (click)="
                 postClick(
-                  '329',
-                  'https://www.totalplay.com.mx/paquetes',
-                  'nav|CLICK/DETALLE:|Paquetes|Paquetes'
+                  '357',
+                  'https://aao.cdmx.gob.mx/vut.html',
+                  'nav|CLICK/DETALLE:|VUT Trámites|VUT Trámites'
                 )
               "
             >
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
-              >
-                <mat-icon style="color: #b5cf30">satellite_alt</mat-icon>
-
-                <a class="text-xs">Paquetes</a>
-              </div>
+              <img class="h-32" mat-card-image src="assets/tramites.png" />
             </div>
             <div
-              class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
+              class="flex items-center justify-center rounded-md h-32 space-x-4"
               (click)="
                 postClick(
-                  '330',
-                  'https://www.totalplay.com.mx/contrata',
-                  'nav|CLICK/DETALLE:|Como contratar|Como contratar'
+                  '358',
+                  'https://aao.cdmx.gob.mx/cesac.html',
+                  'nav|CLICK/DETALLE:|CESAC|CESAC'
                 )
               "
             >
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
-              >
-                <mat-icon style="color: #faaf3f">contact_support</mat-icon>
-
-                <a class="text-xs">¿Cómo contratar?</a>
-              </div>
+              <img class="h-32" mat-card-image src="assets/CESAC.png" />
             </div>
             <div
-              class="flex items-center justify-center rounded-md h-14 space-x-4 pt-10"
+              class="flex items-center justify-center rounded-md h-32 space-x-4 pt-10"
               (click)="
                 postClick(
-                  '331',
-                  'https://avisopago.totalplay.com.mx/',
-                  'nav|CLICK/DETALLE:|Pagar servicio|Pagar servicio'
+                  '359',
+                  'https://www.cdmx.gob.mx/',
+                  'nav|CLICK/DETALLE:|Registro Electrónico|Registro Electrónico'
                 )
               "
             >
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4 w-full"
-              >
-                <mat-icon style="color: #ec1a3c">payments</mat-icon>
-
-                <a class="text-xs">Pagar Servicio</a>
-              </div>
+              <img class="h-32" mat-card-image src="assets/registro.png" />
+            </div>
+            <div
+              class="flex items-center justify-center rounded-md h-32 space-x-4 pt-10"
+              (click)="
+                postClick(
+                  '360',
+                  'https://aao.cdmx.gob.mx/cric.html',
+                  'nav|CLICK/DETALLE:|Centro de Respuesta a Incidentes Ciudadanos|Centro de Respuesta a Incidentes Ciudadanos'
+                )
+              "
+            >
+              <img
+                class="h-32"
+                mat-card-image
+                src="assets/centro_de_respuesta.png"
+              />
+            </div>
+            <div
+              class="flex items-center justify-center rounded-md h-32 space-x-4 pt-10"
+              (click)="
+                postClick(
+                  '361',
+                  'https://llave.cdmx.gob.mx/oauth.xhtml?client_id=202108191148024878&redirect_url=https%3A%2F%2Fwww.cdmx.gob.mx%2Fbackoffice.xhtml&state=JtGg-gvQBsLMnF3G8kED5vgF-Qhnq2LOTlitIBGWjkrYDX0BPVhgiE4s9vVHVih8',
+                  'nav|CLICK/DETALLE:|Pagos en Línea|Pagos en Línea'
+                )
+              "
+            >
+              <img class="h-32" mat-card-image src="assets/pagos.png" />
             </div>
           </div>
         </div>
@@ -100,61 +119,59 @@
               (click)="
                 postClick(
                   '332',
-                  'https://www.google.com/maps/search/TotalPlay/@19.4173279,-99.2239391,52247m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTExMi4wIKXMDSoASAFQAw%3D%3D',
+                  'https://www.google.com/maps/place/Alcald%C3%ADa+%C3%81lvaro+Obreg%C3%B3n/@19.3893561,-99.1999383,783m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85d201d6a5d846d9:0x193d29b4e1191b26!8m2!3d19.3893562!4d-99.1950674!16s%2Fg%2F1tfcz4nn?entry=ttu&g_ep=EgoyMDI0MTExOC4wIKXMDSoASAFQAw%3D%3D',
                   'nav|CLICK/DETALLE:|Oficina cerca de ti|Oficina cerca de ti'
                 )
               "
             />
           </div>
-
-          <div class="flex flex-col justify-evenly">
-            <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-                (click)="
-                  postClick(
-                    '333',
-                    'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em@',
-                    'nav|CLICK/DETALLE:|Soporte|Soporte'
-                  )
-                "
-              >
-                <mat-icon style="color: #02bbe37d">help_outline</mat-icon>
-
-                <span class="text-sm">Chat en linea</span>
-              </div>
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-                (click)="
-                  postClick(
-                    '334',
-                    '',
-                    'nav|CLICK/DETALLE:|Continuar la llamada|Continuar la llamada'
-                  )
-                "
-              >
-                <mat-icon style="color: #b5cf30">call</mat-icon>
-
-                <a href="tel:5558044140" class="text-xs">Continuar llamada</a>
-              </div>
-            </div>
-          </div>
           <div
-            class="h-auto w-auto flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
+            class="flex items-center justify-center bg-gray-300 rounded-md h-14 w-full space-x-4"
+            style="background-color: #66072f"
+            (click)="postClick('333', '', 'nav|CLICK/DETALLE:|Soporte|Soporte')"
+          >
+            <span class="text-sm text-white">Continuar la llamada</span>
+          </div>
+          <br />
+          <div
+            class="flex items-center justify-center bg-gray-300 rounded-md h-14 w-full space-x-4"
+            style="background-color: #66072f"
             (click)="
               postClick(
-                '354',
-                'https://api.whatsapp.com/send?phone=573113467116',
-                'nav|CLICK/DETALLE:|Chat via whatsapp|Chat via whatsapp'
+                '333',
+                'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em@',
+                'nav|CLICK/DETALLE:|Soporte|Soporte'
               )
             "
           >
-            <img
-              class="pt-5 pb-5 pl-2 h-16"
-              mat-card-image
-              src="assets/whatsapp.svg"
-            />
-            <a>Chat via Whatsapp</a>
+            <span class="text-sm text-white">Chat en linea</span>
+          </div>
+          <div class="flex">
+            <div
+              class="flex flex-row w-full h-6 pt-8 items-center justify-center"
+            >
+              <img
+                mat-card-image
+                src="assets/facebook.svg"
+                alt=""
+                class="h-10 w-5"
+                (click)="goToLink('https://www.facebook.com/AlcaldiaAOMx/')"
+              />
+              <img
+                mat-card-image
+                src="assets/twitterx.svg"
+                alt=""
+                class="h-10 w-10 pl-5"
+                (click)="goToLink('https://x.com/AlcaldiaAO')"
+              />
+              <img
+                mat-card-image
+                src="assets/instagram.svg"
+                alt=""
+                class="h-10 w-10 pl-5"
+                (click)="goToLink('https://www.instagram.com/alcaldiaaomx/')"
+              />
+            </div>
           </div>
           <div class="h-full w-full">
             <carousel
@@ -166,43 +183,36 @@
             >
               <div class="carousel-slide">
                 <img
-                  class="pt-5 pb-5 pl-2 h-32"
+                  class="pt-5 pb-5 pl-2 h-48 w-96"
                   mat-card-image
-                  src="assets/image1.png"
+                  src="assets/carruselAlvaro1.png"
                 />
               </div>
               <div class="carousel-slide">
                 <img
-                  class="pt-5 pb-5 pl-2 h-32 w-96"
+                  class="pt-5 pb-5 pl-2 h-48 w-96"
                   mat-card-image
-                  src="assets/image2.png"
+                  src="assets/carruselAlvaro2.png"
                 />
               </div>
               <div class="carousel-slide">
                 <img
-                  class="pt-5 pb-5 pl-2 h-32 w-96"
+                  class="pt-5 pb-5 pl-2 h-48 w-96"
                   mat-card-image
-                  src="assets/image3.png"
-                />
-              </div>
-              <div class="carousel-slide">
-                <img
-                  class="pt-5 pb-5 pl-2 h-32 w-96"
-                  mat-card-image
-                  src="assets/image4.png"
+                  src="assets/carruselAlvaro3.png"
                 />
               </div>
             </carousel>
           </div>
           <div class="pt-5">
-            <p class="text-xs h-full text-center" style="color: white">
+            <p class="text-xs h-full text-center" style="color: black">
               Powered by S10 Plus ® - 2024 - All Rights Reserved
             </p>
             <div
               class="flex items-center justify-center inline-block align-middle"
             >
-              <mat-icon style="color: white">copyright</mat-icon>
-              <p class="text-xs h-full text-center pt-3" style="color: white">
+              <mat-icon style="color: black">copyright</mat-icon>
+              <p class="text-xs h-full text-center pt-3" style="color: black">
                 Copyright S10PLUS USA LLC
               </p>
             </div>
@@ -212,134 +222,113 @@
     </mat-card>
   </div>
 </div>
-<div *ngIf="!myFlag">
+
+<div *ngIf="myFlag">
   <div
     class="h-screen flex justify-center items-center p-5"
     style="background-color: #595959"
   >
     <div class="rounded-xl h-full w-96 overflow-scroll flex flex-col p-1">
-      <mat-card class="pb-5 h-screen" appearance="outlined">
+      <mat-card class="pb-5" appearance="outlined">
         <mat-card-title>
-          <div class="flex">
-            <div class="flex flex-row align-middle h-full pt-5" (click)="one()">
-              <mat-icon>arrow_back</mat-icon>
-            </div>
+          <div class="flex" style="background-color: #66072f">
             <div class="flex flex-col w-full items-center justify-center">
               <img
                 mat-card-image
-                src="assets/pngegg.png"
-                alt="Photo of a Shiba Inu"
+                src="assets/logo_alvaro.png"
+                alt=""
                 class="h-16"
               />
+              <div class="w-40">
+                <p class="text-center text-white text-xs">
+                  Transparencia y participación ciudadana para un mejor futuro.
+                </p>
+              </div>
             </div>
           </div>
           <mat-divider></mat-divider>
         </mat-card-title>
-        <mat-card-content class="h-screen" style="background-color: #1e1f28">
-          <div class="flex flex-col justify-evenly pt-5">
-            <div class="grid grid-cols-2 gap-2 px-1 py-1 h-42">
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-                (click)="
-                  postClick(
-                    '350',
-                    'https://www.totalplay.com.mx/internet',
-                    'nav|CLICK/DETALLE:|Internet|Internet'
-                  )
-                "
-              >
-                <mat-icon style="color: #02bbe37d">wifi</mat-icon>
-
-                <span class="text-sm">Internet</span>
-              </div>
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-                (click)="
-                  postClick(
-                    '351',
-                    'https://www.totalplay.com.mx/totalplaytv',
-                    'nav|CLICK/DETALLE:|TV Interactiva|TV Interactiva'
-                  )
-                "
-              >
-                <mat-icon style="color: #b5cf30">connected_tv</mat-icon>
-
-                <span class="text-sm">TV Interactiva</span>
-              </div>
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-                (click)="
-                  postClick(
-                    '352',
-                    'https://www.totalplay.com.mx/telefonia',
-                    'nav|CLICK/DETALLE:|Telefonía Digital|Telefonía Digital'
-                  )
-                "
-              >
-                <mat-icon style="color: #faaf3f">phone_iphone</mat-icon>
-
-                <span class="text-sm">Telefonía Digital</span>
-              </div>
-              <div
-                class="flex items-center justify-center bg-gray-300 rounded-md h-14 space-x-4"
-                (click)="
-                  postClick(
-                    '353',
-                    'https://www.totalplay.com.mx/clubtotalplaywifi',
-                    'nav|CLICK/DETALLE:|Club Wifi|Club Wifi'
-                  )
-                "
-              >
-                <mat-icon style="color: #ec1a3c">wifi</mat-icon>
-
-                <span class="text-sm">Club WIFI</span>
-              </div>
-            </div>
+        <mat-card-content class="h-screen">
+          <div class="flex flex-col justify-evenly pt-5"></div>
+          <div class="flex flex-row w-full h-28 items-center justify-center">
+            <p class="text-sm">
+              Gracias por usar el servicio de Autoatendimiento Móvil Avanzado
+              Digital del Estado de Nuevo león, por favor ingresa tus datos
+            </p>
+          </div>
+          <div class="flex flex-row w-full items-center justify-center">
+            <p class="text-sm">*Nombre</p>
+          </div>
+          <div class="flex flex-col w-full">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="flex flex-row w-full items-center justify-center">
+            <p class="text-sm">*Telefono</p>
+          </div>
+          <div class="flex flex-col w-full">
+            <mat-form-field appearance="outline">
+              <mat-label>Telefono</mat-label>
+              <span matTextPrefix>+52 &nbsp;</span>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="flex flex-row w-full items-center justify-center">
+            <p class="text-sm">*Estado</p>
+          </div>
+          <div class="flex flex-col w-full">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Estado</mat-label>
+              <mat-select [(ngModel)]="selectedState">
+                <mat-option
+                  *ngFor="let state of states | keyvalue"
+                  [value]="state.value"
+                >
+                  {{ state.key }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="flex flex-row w-full items-center justify-center">
+            <p class="text-sm">*Email</p>
+          </div>
+          <div class="flex flex-col w-full">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div
+            class="flex flex-col w-full"
+            (click)="
+              postClick(
+                '355',
+                '',
+                'opened|Acceso a Plataforma|Accesos a Interfaz Gráfica|Accesos a Interfaz Gráfica',
+                true
+              )
+            "
+          >
+            <button mat-flat-button style="background-color: #66072f">
+              Siguiente
+            </button>
           </div>
 
           <div class="flex flex-col">
             <div>
-              <carousel [arrows]="false" [counter]="false">
-                <div class="carousel-slide">
-                  <img
-                    class="pt-5 pb-5 pl-2 h-48 w-96"
-                    mat-card-image
-                    src="assets/image1.png"
-                  />
-                </div>
-                <div class="carousel-slide">
-                  <img
-                    class="pt-5 pb-5 pl-2 h-48 w-96"
-                    mat-card-image
-                    src="assets/image2.png"
-                  />
-                </div>
-                <div class="carousel-slide">
-                  <img
-                    class="pt-5 pb-5 pl-2 h-48 w-96"
-                    mat-card-image
-                    src="assets/image3.png"
-                  />
-                </div>
-                <div class="carousel-slide">
-                  <img
-                    class="pt-5 pb-5 pl-2 h-48 w-96"
-                    mat-card-image
-                    src="assets/image4.png"
-                  />
-                </div>
-              </carousel>
               <div class="pt-5">
-                <p class="text-xs h-full text-center" style="color: white">
-                  Powered by S10 Plus ® - 2022 - All Rights Reserved
+                <p class="text-xs h-full text-center" style="color: black">
+                  Powered by S10 Plus ® - 2024 - All Rights Reserved
                 </p>
                 <div
                   class="flex items-center justify-center inline-block align-middle"
                 >
-                  <mat-icon style="color: white">copyright</mat-icon>
+                  <mat-icon style="color: black">copyright</mat-icon>
                   <p
                     class="text-xs h-full text-center pt-3"
-                    style="color: white"
+                    style="color: black"
                   >
                     Copyright S10PLUS USA LLC
                   </p>

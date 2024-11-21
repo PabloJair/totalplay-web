@@ -7,6 +7,10 @@ import { PhoneNumberModalComponent } from '../phone-number-modal/phone-number-mo
 import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 export interface Tile {
   color: string;
   cols: number;
@@ -24,7 +28,41 @@ export class HomeComponent implements OnInit {
   public lat: any;
   public lng: any;
   public titleLoader: string = 'Cargando';
-
+  states: { [key: string]: string } = {
+    AGUASCALIENTES: 'AGS.',
+    'BAJA CALIFORNIA': 'BC.',
+    'BAJA CALIFORNIA SUR': 'BCS.',
+    CAMPECHE: 'CAMP.',
+    COAHUILA: 'COAH.',
+    COLIMA: 'COL.',
+    CHIAPAS: 'CHIS.',
+    CHIHUAHUA: 'CHIH.',
+    'CIUDAD DE MEXICO': 'CDMX.',
+    DURANGO: 'DGO.',
+    GUANAJUATO: 'GTO.',
+    GUERRERO: 'GRO.',
+    HIDALGO: 'HGO.',
+    JALISCO: 'JAL.',
+    MEXICO: 'EDO-MÉX.',
+    MICHOACAN: 'MICH.',
+    MORELOS: 'MOR.',
+    NAYARIT: 'NAY.',
+    'NUEVO LEON': 'NL.',
+    OAXACA: 'OAX.',
+    PUEBLA: 'PUE.',
+    QUERETARO: 'QRO.',
+    'QUINTANA ROO': 'QROO.',
+    'SAN LUIS POTOSI': 'SLP.',
+    SINALOA: 'SIN.',
+    SONORA: 'SON.',
+    TABASCO: 'TAB.',
+    TAMAULIPAS: 'TAMPS.',
+    TLAXCALA: 'TLAX.',
+    VERACRUZ: 'VER.',
+    YUCATAN: 'YUC.',
+    ZACATECAS: 'ZAC.',
+  };
+  selectedStateForm: string = '';
   myFlag = true;
   constructor(
     public loadService: LoadService,
@@ -34,12 +72,13 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) {}
   readonly dialog = inject(MatDialog);
+
   ngOnInit(): void {
     this.spinner.show;
     this.getLocation();
 
     this.deviceInfo = this.deviceService.getDeviceInfo();
-    this.openDialogPhone();
+    //this.openDialogPhone();
     //
   }
   openDialogState(): void {

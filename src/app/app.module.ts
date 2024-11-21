@@ -16,6 +16,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CarouselModule } from 'ngx-carousel-ease';
 import { provideHttpClient } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ServicesComponent],
@@ -31,6 +35,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatDividerModule,
     CarouselModule,
     NgxSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    MatButtonModule,
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
