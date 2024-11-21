@@ -118,7 +118,7 @@
               src="assets/map2.png"
               (click)="
                 postClick(
-                  '332',
+                  '365',
                   'https://www.google.com/maps/place/Alcald%C3%ADa+%C3%81lvaro+Obreg%C3%B3n/@19.3893561,-99.1999383,783m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85d201d6a5d846d9:0x193d29b4e1191b26!8m2!3d19.3893562!4d-99.1950674!16s%2Fg%2F1tfcz4nn?entry=ttu&g_ep=EgoyMDI0MTExOC4wIKXMDSoASAFQAw%3D%3D',
                   'nav|CLICK/DETALLE:|Oficina cerca de ti|Oficina cerca de ti'
                 )
@@ -128,7 +128,13 @@
           <div
             class="flex items-center justify-center bg-gray-300 rounded-md h-14 w-full space-x-4"
             style="background-color: #66072f"
-            (click)="postClick('333', '', 'nav|CLICK/DETALLE:|Soporte|Soporte')"
+            (click)="
+              postClick(
+                '366',
+                '',
+                'nav|CLICK/DETALLE:|Continuar la llamada|Continuar la llamada'
+              )
+            "
           >
             <a href="tel:(55)52766700" class="text-sm text-white"
               >Continuar llamada</a
@@ -140,9 +146,9 @@
             style="background-color: #66072f"
             (click)="
               postClick(
-                '333',
+                '367',
                 'https://cari.ai/cVhlaTdqekZaZkkyL1VZUDc4QjdZMFI0b2hkLzVVMXhmM0xsaDNxWmVScmxQdGNUVWlNcExPVnlsdDNDb2podzFyWEFyblpaWmJmeQ==@em@',
-                'nav|CLICK/DETALLE:|Soporte|Soporte'
+                'nav|CLICK/DETALLE:|Chat en línea|Chat en línea'
               )
             "
           >
@@ -157,21 +163,39 @@
                 src="assets/facebook.svg"
                 alt=""
                 class="h-10 w-5"
-                (click)="goToLink('https://www.facebook.com/AlcaldiaAOMx/')"
+                (click)="
+                  postClick(
+                    '362',
+                    'https://www.facebook.com/AlcaldiaAOMx/',
+                    'nav|CLICK/DETALLE:|Facebook|Facebook'
+                  )
+                "
               />
               <img
                 mat-card-image
                 src="assets/twitterx.svg"
                 alt=""
                 class="h-10 w-10 pl-5"
-                (click)="goToLink('https://x.com/AlcaldiaAO')"
+                (click)="
+                  postClick(
+                    '363',
+                    'https://x.com/AlcaldiaAO',
+                    'nav|CLICK/DETALLE:|Twitter|Twitter'
+                  )
+                "
               />
               <img
                 mat-card-image
                 src="assets/instagram.svg"
                 alt=""
                 class="h-10 w-10 pl-5"
-                (click)="goToLink('https://www.instagram.com/alcaldiaaomx/')"
+                (click)="
+                  postClick(
+                    '364',
+                    'https://www.instagram.com/alcaldiaaomx/',
+                    'nav|CLICK/DETALLE:|Twitter|Twitter'
+                  )
+                "
               />
             </div>
           </div>
