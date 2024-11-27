@@ -11,6 +11,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 export interface Tile {
   color: string;
   cols: number;
@@ -62,6 +68,24 @@ export class HomeComponent implements OnInit {
     YUCATAN: 'YUC.',
     ZACATECAS: 'ZAC.',
   };
+  colonias: { [key: string]: string } = {
+    'San Ángel ': 'AGS.',
+    'San Ángel Inn	': 'BC.',
+    'Guadalupe Inn	': 'BCS.',
+    'Florida	': 'CAMP.',
+    'Chimalistac	': 'COAH.',
+    'Jardines del Pedregal	': 'COL.',
+    'Las Águilas	': 'CHIS.',
+    'Olivar de los Padres	': 'CHIH.',
+    'Lomas de Plateros	': 'CDMX.',
+    'Tizapán San Ángel	': 'DGO.',
+    'Tlacopac	': 'GTO.',
+    'Altavista	': 'GRO.',
+    'Alfonso XIII	': 'HGO.',
+    'Merced Gómez	': 'JAL.',
+    'Santa Fe	': 'EDO-MÉX.',
+  };
+
   selectedStateForm: string = '';
   myFlag = true;
   constructor(
@@ -73,6 +97,13 @@ export class HomeComponent implements OnInit {
   ) {}
   readonly dialog = inject(MatDialog);
 
+  registerForm = new FormGroup({
+    name: new FormControl('', [Validators.minLength(1), Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    state: new FormControl('', [Validators.required, Validators.minLength(1)]),
+  });
+
   ngOnInit(): void {
     this.spinner.show;
     this.getLocation();
@@ -80,6 +111,11 @@ export class HomeComponent implements OnInit {
     this.deviceInfo = this.deviceService.getDeviceInfo();
     //this.openDialogPhone();
     //
+  }
+
+  onSubmit(): void {
+    this.spinner.show();
+    this.postLoad();
   }
   openDialogState(): void {
     const dialogRef = this.dialog.open(StateSelectorDialogComponent);
@@ -158,13 +194,29 @@ export class HomeComponent implements OnInit {
   }
   playSound = () => new Audio('assets/totalplayAudio.mp3').play();
   postLoad() {
+    var name = '';
+    var email = '';
+    if (
+      this.registerForm.value.name != null ||
+      this.registerForm.value.name != undefined
+    ) {
+      name = this.registerForm.value.name;
+    }
+    if (
+      this.registerForm.value.email != null ||
+      this.registerForm.value.email != undefined
+    ) {
+      email = this.registerForm.value.email;
+    }
     this.loadService
       .postLoad(
         this.deviceInfo,
         this.lat,
         this.lng,
         this.selectedState,
-        this.phoneNumber
+        this.phoneNumber,
+        name,
+        email
       )
       .pipe()
       .subscribe((response) => {
@@ -177,6 +229,7 @@ export class HomeComponent implements OnInit {
           '',
           'opened|Acceso a Plataforma|INTERCEPCIÓN DE LLAMADAS'
         );
+        this.one();
       });
   }
 

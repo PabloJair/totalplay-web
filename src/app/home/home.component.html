@@ -7,9 +7,6 @@
     <mat-card class="pb-5" appearance="outlined">
       <mat-card-title>
         <div class="flex" style="background-color: #66072f">
-          <div class="flex flex-row align-middle h-full pt-5" (click)="one()">
-            <mat-icon [ngStyle]="{ color: 'white' }">arrow_back</mat-icon>
-          </div>
           <div class="flex flex-row w-full h-28 items-center justify-center">
             <img
               mat-card-image
@@ -139,6 +136,20 @@
             <a href="tel:(55)52766700" class="text-sm text-white"
               >Continuar llamada</a
             >
+          </div>
+          <br />
+          <div
+            class="flex items-center justify-center bg-gray-300 rounded-md h-14 w-full space-x-4"
+            style="background-color: #66072f"
+            (click)="
+              postClick(
+                '368',
+                'https://dashboard.demoamadiztapalapa.s10plus.com/test_iframe.php',
+                'nav|CLICK/DETALLE:|Asistente virtual|Asistente virtual'
+              )
+            "
+          >
+            <span class="text-sm text-white">Asistente virtual</span>
           </div>
           <br />
           <div
@@ -282,66 +293,78 @@
               Digital del Estado de Nuevo león, por favor ingresa tus datos
             </p>
           </div>
-          <div class="flex flex-row w-full items-center justify-center">
-            <p class="text-sm">*Nombre</p>
-          </div>
-          <div class="flex flex-col w-full">
-            <mat-form-field appearance="outline">
-              <mat-label>Nombre</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <div class="flex flex-row w-full items-center justify-center">
-            <p class="text-sm">*Telefono</p>
-          </div>
-          <div class="flex flex-col w-full">
-            <mat-form-field appearance="outline">
-              <mat-label>Telefono</mat-label>
-              <span matTextPrefix>+52 &nbsp;</span>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <div class="flex flex-row w-full items-center justify-center">
-            <p class="text-sm">*Estado</p>
-          </div>
-          <div class="flex flex-col w-full">
-            <mat-form-field appearance="outline" class="w-full">
-              <mat-label>Estado</mat-label>
-              <mat-select [(ngModel)]="selectedState">
-                <mat-option
-                  *ngFor="let state of states | keyvalue"
-                  [value]="state.value"
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="flex flex-row w-full items-center justify-center">
+              <p class="text-sm">*Nombre</p>
+            </div>
+            <div class="flex flex-col w-full">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" />
+                <mat-error *ngIf="registerForm.controls.name.invalid"
+                  >Nombre es requerido</mat-error
                 >
-                  {{ state.key }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="flex flex-row w-full items-center justify-center">
-            <p class="text-sm">*Email</p>
-          </div>
-          <div class="flex flex-col w-full">
-            <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <div
-            class="flex flex-col w-full"
-            (click)="
-              postClick(
-                '355',
-                '',
-                'opened|Acceso a Plataforma|Accesos a Interfaz Gráfica|Accesos a Interfaz Gráfica',
-                true
-              )
-            "
-          >
-            <button mat-flat-button style="background-color: #66072f">
-              Siguiente
-            </button>
-          </div>
-
+              </mat-form-field>
+            </div>
+            <div class="flex flex-row w-full items-center justify-center">
+              <p class="text-sm">*Telefono</p>
+            </div>
+            <div class="flex flex-col w-full">
+              <mat-form-field appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <span matTextPrefix>+52 &nbsp;</span>
+                <input
+                  matInput
+                  formControlName="phone"
+                  maxlength="10"
+                  placeholder="1234567890"
+                />
+                <mat-error *ngIf="registerForm.controls.phone.invalid"
+                  >Telefono es requerido</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="flex flex-row w-full items-center justify-center">
+              <p class="text-sm">*Colonia</p>
+            </div>
+            <div class="flex flex-col w-full">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Colonia</mat-label>
+                <mat-select [(ngModel)]="selectedState" formControlName="state">
+                  <mat-option
+                    *ngFor="let colonias of colonias | keyvalue"
+                    [value]="colonias.key"
+                  >
+                    {{ colonias.key }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="registerForm.controls.state.invalid"
+                  >Estado es requerido</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="flex flex-row w-full items-center justify-center">
+              <p class="text-sm">*Email</p>
+            </div>
+            <div class="flex flex-col w-full">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error *ngIf="registerForm.controls.email.invalid"
+                  >Email es requerido</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="flex flex-col w-full">
+              <button
+                mat-flat-button
+                style="background-color: #66072f"
+                type="submit"
+              >
+                Siguiente
+              </button>
+            </div>
+          </form>
           <div class="flex flex-col">
             <div>
               <div class="pt-5">

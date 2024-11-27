@@ -13,7 +13,9 @@ export class LoadService {
     lat: number,
     lng: number,
     selecteState: string,
-    phone: string
+    phone: string,
+    name: string,
+    email: string
   ) {
     const body = {
       android_version: '' + deviceInfo.browser + '/' + deviceInfo.os,
@@ -23,8 +25,10 @@ export class LoadService {
         lat: lat,
         long: lng,
         origin: deviceInfo.deviceType,
-        state: selecteState,
+        colonia: selecteState,
         tel_marcado: '',
+        nombre: name,
+        email: email,
       },
       phone_id: '',
       phone_number: phone,
